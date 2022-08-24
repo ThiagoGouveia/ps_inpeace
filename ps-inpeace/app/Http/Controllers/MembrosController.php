@@ -14,8 +14,10 @@ class MembrosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {   
+        $membros = Membro::all();
+        $igrejas = Igreja::all();
+        return view('membros.index',compact('membros'),compact('igrejas'));
     }
 
     /**
@@ -45,6 +47,7 @@ class MembrosController extends Controller
         $membro['cidade'] = 'São Mateus';
         
         Membro::create($membro);
+        return redirect('/membros');
     }
 
     /**
@@ -54,8 +57,10 @@ class MembrosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
+    {   
+        $membro = Membro::findOrFail($id);
+        $igrejas = Igreja::all();
+        return view('membros.show', compact('membro'), compact('igrejas'));
     }
 
     /**
@@ -66,7 +71,9 @@ class MembrosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $membro = Membro::findOrFail($id);
+        $igrejas = Igreja::all();
+        return view('membros.edit', compact('membro'), compact('igrejas'));
     }
 
     /**
@@ -78,7 +85,10 @@ class MembrosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $membro = Membro::findOrFail($id);
+        $membro->update($request->all());
+
+        return redirect('/membros');
     }
 
     /**
@@ -89,6 +99,9 @@ class MembrosController extends Controller
      */
     public function destroy($id)
     {
+        $membro = Membro::findOrFail($id);
+        $membro->delete();
+        return redirect('/membros');
         //
     }
 }

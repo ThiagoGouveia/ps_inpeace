@@ -7,7 +7,7 @@
       @csrf
         <div class="form-group"> 
             <label for="inputNome">Nome</label>
-            <input type="text" name="nome" class="form-control" placeholder="">
+            <input type="text" name="nome" class="form-control" placeholder="" >
         </div>
         <div class="form-group"> 
             <label for="inputCPF">CPF</label>

@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        input[type=submit]  {
+        background-color: #ff0000;
+        border: none;
+        color: white;
+        padding: 2px 4px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+    </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
