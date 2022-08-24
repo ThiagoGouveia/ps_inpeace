@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Membro;
+use App\Models\Igreja;
 
 class MembrosController extends Controller
 {
@@ -22,8 +24,10 @@ class MembrosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {   
+        $igrejas = Igreja::all();
+        // dd($igrejas);
+        return view('membros.create', compact('igrejas'));
     }
 
     /**
@@ -35,6 +39,9 @@ class MembrosController extends Controller
     public function store(Request $request)
     {
         //
+        $membro = $request;
+        $membro['igreja_id'] = (int)$request->igreja_id;
+        dd($membro);
     }
 
     /**

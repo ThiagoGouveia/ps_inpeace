@@ -10,7 +10,7 @@ class Membro extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
+        'nome',
         'CPF',
         'data_nascimento',
         'email',

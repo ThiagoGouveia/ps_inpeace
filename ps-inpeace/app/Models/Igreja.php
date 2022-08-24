@@ -10,7 +10,7 @@ class Igreja extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
+        'nome',
         'endereco',
         'website',
     ];

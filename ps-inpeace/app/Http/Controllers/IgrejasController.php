@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Igreja;
 
 class IgrejasController extends Controller
 {
@@ -14,6 +15,7 @@ class IgrejasController extends Controller
     public function index()
     {
         //
+        return "teste";
     }
 
     /**
@@ -23,7 +25,7 @@ class IgrejasController extends Controller
      */
     public function create()
     {
-        //
+        return view('igrejas.create');
     }
 
     /**
@@ -34,7 +36,7 @@ class IgrejasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Igreja::create($request->all());
     }
 
     /**
