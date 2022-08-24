@@ -39,9 +39,12 @@ class MembrosController extends Controller
     public function store(Request $request)
     {
         //
-        $membro = $request;
+        $membro = $request->all();
         $membro['igreja_id'] = (int)$request->igreja_id;
-        dd($membro);
+        $membro['estado'] = 'Espirito Santo';
+        $membro['cidade'] = 'São Mateus';
+        
+        Membro::create($membro);
     }
 
     /**

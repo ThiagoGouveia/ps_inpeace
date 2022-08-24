@@ -17,7 +17,8 @@ class Membro extends Model
         'telefone',
         'logradouro',
         'cidade',
-        'estado'
+        'estado',
+        'igreja_id'
     ];
     
     public function igreja(){

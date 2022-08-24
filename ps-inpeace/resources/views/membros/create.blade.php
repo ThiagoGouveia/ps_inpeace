@@ -7,18 +7,31 @@
       @csrf
         <div class="form-group"> 
             <label for="inputNome">Nome</label>
-            <input type="text" name="nome" class="form-control" placeholder="Nome">
+            <input type="text" name="nome" class="form-control" placeholder="">
         </div>
         <div class="form-group"> 
-            <label for="inputEndereco">Endereço</label>
-            <input type="text" name="endereco" class="form-control" placeholder="Endereço">
+            <label for="inputCPF">CPF</label>
+            <input type="text" name="CPF" class="form-control" placeholder="">
         </div>
         <div class="form-group"> 
-            <label for="inputWebsite">Website</label>
-            <input type="text" name="website" class="form-control" placeholder="Endereco">
+            <label for="inputEmail">Email</label>
+            <input type="text" name="email" class="form-control" placeholder="">
         </div>
         <div class="form-group"> 
-            <label for="inputWebsite">Sua igreja:</label>
+            <label for="inputTelefone">Telefone</label>
+            <input type="text" name="telefone" class="form-control" placeholder="">
+        </div>
+        <div class="form-group"> 
+            <label for="inputLogradouro">Logradouro</label>
+            <input type="text" name="logradouro" class="form-control" placeholder="">
+        </div>
+        <div class="form-group"> 
+            <label for="inputDataNascimento">Data de Nascimento</label>
+            <input type="date" name="data_nascimento">
+        </div>
+
+        <div class="form-group"> 
+            <label for="inputIgreja">Sua igreja:</label>
             <select id="igrejas" name="igreja_id">
                 @foreach ($igrejas as $igreja)              
                     <option value= {{ $igreja->id }}>{{ $igreja->nome}}</option>
