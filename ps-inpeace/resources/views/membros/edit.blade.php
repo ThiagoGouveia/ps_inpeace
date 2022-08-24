@@ -46,5 +46,11 @@
         <input type="hidden" name="_method" value="DELETE">
         <input type="submit" value = "DELETE" >
     </form>
-
+    
+    @if(count($errors)>0)
+    <br>
+        <div class="alert alert-danger">
+            Preencha todos os campos 
+        </div>
+    @endif
 @endsection

@@ -12,6 +12,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
+    a.button {
+        background-color: #13C0F5;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+    }
 
     input[type=submit]  {
         background-color: #ff0000;

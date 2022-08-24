@@ -41,11 +41,24 @@ class MembrosController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request, [
+            'nome' => 'required',
+            'CPF' => 'required',
+            'email' => 'required',
+            'telefone' => 'required',
+            'logradouro' => 'required',
+            'data_nascimento' => 'required',
+            'igreja_id' => 'required'
+            
+        ]);
+
         $membro = $request->all();
         $membro['igreja_id'] = (int)$request->igreja_id;
         $membro['estado'] = 'Espirito Santo';
         $membro['cidade'] = 'São Mateus';
         
+        
+
         Membro::create($membro);
         return redirect('/membros');
     }
@@ -84,7 +97,17 @@ class MembrosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
+    {   
+        $this->validate($request, [
+            'nome' => 'required',
+            'CPF' => 'required',
+            'email' => 'required',
+            'telefone' => 'required',
+            'logradouro' => 'required',
+            'data_nascimento' => 'required',
+            'igreja_id' => 'required'
+        ]);
+
         $membro = Membro::findOrFail($id);
         $membro->update($request->all());
 

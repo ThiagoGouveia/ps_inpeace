@@ -38,9 +38,16 @@
                 @endforeach
             </select>
         </div>
-      <button type="submit" class="btn btn-primary">Enviar</button>
+
+        <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
 
+    @if(count($errors)>0)
+    <br>
+        <div class="alert alert-danger">
+            Preencha todos os campos 
+        </div>
+    @endif
         
 
 

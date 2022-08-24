@@ -9,8 +9,13 @@
                 <div class="row">
                     <div class="col-xs-5">
                         <h2>Membros</h2>
+                        <br>
+                            <a href="{{ route('membros.create') }}" class="button" title="Criar membro" data-toggle="tooltip">Criar</a>
+                        </br>
+                        
                     </div>
                 </div>
+                
             </div>
             <table class="table table-striped table-hover">
                 <thead>
@@ -27,7 +32,7 @@
                     @foreach ($membros as $membro)
                     <tr>
                         <td>{{ $membro->id }}</td>
-                        <td><a href="{{ route('membros.show', $membro->id) }}"> {{ $membro->nome }}</a></td>
+                        <td><a href="{{ route('membros.show', $membro->id) }}" title="Ver usuário"> {{ $membro->nome }} </a></td>
                         <td>{{ $membro->data_nascimento }}</td>                        
                         <td>{{ $membro->email }}</td>
                         @foreach ($igrejas as $igreja)

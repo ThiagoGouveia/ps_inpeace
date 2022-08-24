@@ -14,8 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/membros');
 });
 
-Route::resource('/igrejas', '\App\Http\Controllers\IgrejasController');
-Route::resource('/membros', '\App\Http\Controllers\MembrosController');
+Route::group(['middleware'=>'web'],function(){
+    Route::resource('/igrejas', '\App\Http\Controllers\IgrejasController');
+    Route::resource('/membros', '\App\Http\Controllers\MembrosController');
+});
