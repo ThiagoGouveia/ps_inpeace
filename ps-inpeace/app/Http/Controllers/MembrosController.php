@@ -52,14 +52,14 @@ class MembrosController extends Controller
             
         ]);
 
-        $membro = $request->all();
-        $membro['igreja_id'] = (int)$request->igreja_id;
-        $membro['estado'] = 'Espirito Santo';
-        $membro['cidade'] = 'São Mateus';
+        $input = $request->all();
+        $input['igreja_id'] = (int)$request->igreja_id;
+        $input['estado'] = 'Espirito Santo';
+        $input['cidade'] = 'São Mateus';
         
         
 
-        Membro::create($membro);
+        Membro::create($input);
         return redirect('/membros');
     }
 

@@ -13,6 +13,7 @@ class Igreja extends Model
         'nome',
         'endereco',
         'website',
+        'path'
     ];
 
     public function membros(){

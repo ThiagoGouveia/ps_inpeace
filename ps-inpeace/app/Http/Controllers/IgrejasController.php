@@ -15,7 +15,8 @@ class IgrejasController extends Controller
     public function index()
     {
         //
-        return "teste";
+        $igrejas = Igreja::all();
+        return view('igrejas.index',compact('igrejas'));
     }
 
     /**
@@ -36,7 +37,22 @@ class IgrejasController extends Controller
      */
     public function store(Request $request)
     {
-        Igreja::create($request->all());
+        $this->validate($request, [
+            'nome' => 'required',
+            'endereco' => 'required',
+            'website' => 'required',     
+        ]);
+
+        $input = $request->all();
+
+        if($file = $request->file('file')){
+            $name = $file->getClientOriginalName();
+            $file->move('images', $name);
+            $input['path'] = $name;
+        }
+
+        Igreja::create($input);
+        return redirect('/igrejas');
     }
 
     /**
@@ -47,7 +63,8 @@ class IgrejasController extends Controller
      */
     public function show($id)
     {
-        //
+        $igreja = Igreja::findOrFail($id);
+        return view('igrejas.show', compact('igreja'));
     }
 
     /**
@@ -58,7 +75,9 @@ class IgrejasController extends Controller
      */
     public function edit($id)
     {
-        //
+        $igreja = Igreja::findOrFail($id);
+        
+        return view('igrejas.edit', compact('igreja'));
     }
 
     /**
@@ -70,7 +89,24 @@ class IgrejasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'nome' => 'required',
+            'endereco' => 'required',
+            'website' => 'required',     
+        ]);
+
+        $input = $request->all();
+
+        if($file = $request->file('file')){
+            $name = $file->getClientOriginalName();
+            $file->move('images', $name);
+            $input['path'] = $name;
+        }
+
+        $igreja = Igreja::findOrFail($id);
+        $igreja->update($input);
+
+        return redirect('/igrejas');
     }
 
     /**
@@ -81,6 +117,6 @@ class IgrejasController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
 }
