@@ -14,7 +14,8 @@ class MembrosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
+
         $membros = Membro::all();
         $igrejas = Igreja::all();
         return view('membros.index',compact('membros'),compact('igrejas'));
@@ -26,7 +27,7 @@ class MembrosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   
+    {
         $igrejas = Igreja::all();
         // dd($igrejas);
         return view('membros.create', compact('igrejas'));
@@ -49,15 +50,11 @@ class MembrosController extends Controller
             'logradouro' => 'required',
             'data_nascimento' => 'required',
             'igreja_id' => 'required'
-            
+
         ]);
 
         $input = $request->all();
         $input['igreja_id'] = (int)$request->igreja_id;
-        $input['estado'] = 'Espirito Santo';
-        $input['cidade'] = 'São Mateus';
-        
-        
 
         Membro::create($input);
         return redirect('/membros');
@@ -70,7 +67,7 @@ class MembrosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {   
+    {
         $membro = Membro::findOrFail($id);
         $igrejas = Igreja::all();
         return view('membros.show', compact('membro'), compact('igrejas'));
@@ -97,7 +94,7 @@ class MembrosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {   
+    {
         $this->validate($request, [
             'nome' => 'required',
             'CPF' => 'required',
