@@ -26,6 +26,11 @@
             <label for="inputLogradouro">Logradouro</label>
             <input type="text" name="logradouro" class="form-control" placeholder="" value = "{{ $membro->logradouro }}">
         </div>
+
+        <div class="form-group"> 
+            @livewire('dynamic-dropdown')
+        </div>
+
         <div class="form-group"> 
             <label for="inputDataNascimento">Data de Nascimento</label>
             <input type="date" name="data_nascimento"  value = "{{ $membro->data_nascimento }}">
@@ -33,7 +38,7 @@
 
         <div class="form-group"> 
             <label for="inputIgreja">Sua igreja:</label>
-            <select id="igrejas" name="igreja_id">
+            <select id="igrejas" name="igreja_id" class = "form-control">
                 @foreach ($igrejas as $igreja)              
                     <option value= {{ $igreja->id }}>{{ $igreja->nome}}</option>
                 @endforeach

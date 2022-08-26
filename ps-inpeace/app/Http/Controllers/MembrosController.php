@@ -49,7 +49,9 @@ class MembrosController extends Controller
             'telefone' => 'required',
             'logradouro' => 'required',
             'data_nascimento' => 'required',
-            'igreja_id' => 'required'
+            'igreja_id' => 'required',
+            'estado' => 'required',
+            'cidade' => 'required'
 
         ]);
 
@@ -102,7 +104,9 @@ class MembrosController extends Controller
             'telefone' => 'required',
             'logradouro' => 'required',
             'data_nascimento' => 'required',
-            'igreja_id' => 'required'
+            'igreja_id' => 'required',
+            'estado' => 'required',
+            'cidade' => 'required'
         ]);
 
         $membro = Membro::findOrFail($id);
